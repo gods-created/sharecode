@@ -14,7 +14,7 @@ ShareCode enables multiple participants to work in the code editor online withou
 ### Installation
 
 ```bash
-docker pull boters2023/sharecode
+docker pull botersk2023/sharecode
 touch docker-compose.yml .env .pg_service.conf .pgpass
 ```
 
