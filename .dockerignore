@@ -1,0 +1,5 @@
+.env
+docker-compose.yml
+.pgpass
+.pg_service.conf
+stack.yml
