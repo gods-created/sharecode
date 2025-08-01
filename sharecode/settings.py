@@ -24,7 +24,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     'django',
-    '0.0.0.0'
+    '0.0.0.0',
+    '13.218.198.21',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -32,6 +33,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8001',
     'http://django:8001',
     'http://0.0.0.0:8001',
+    'http://13.218.198.21',
 ]
 CORS_ALLOWED_CREDENTIALS = False 
 SECURE_BROWSER_XSS_FILTER = True 
@@ -107,12 +109,13 @@ ASGI_APPLICATION = 'sharecode.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            'service': 'default',
-        },
+        'NAME': getenv('POSTGRES_DB'),
+        'USER': getenv('POSTGRES_USER'),
+        'PASSWORD': getenv('POSTGRES_PASSWORD'),
+        'HOST': getenv('POSTGRES_HOST'),
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

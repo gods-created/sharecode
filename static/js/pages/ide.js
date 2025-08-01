@@ -78,7 +78,7 @@ async function room_content(room_number) {
 }
 
 $(document).ready(async () => {
-    const number = $('#room-number').val();
+    const number = $('#room-number').text();
     // const port = Number(basePort) + 1;
     // const host = baseHost.replaceAll(basePort, port);
     socket = new WebSocket(`ws://${baseHost}/ws/code/${number}/`);

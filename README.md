@@ -20,10 +20,9 @@ touch docker-compose.yml .env .pg_service.conf .pgpass
 
 ### Running the App
 
-You need to correctly fill in the following files: docker-compose.yml, .env, .pg_service.conf, .pgpass.
+You need to correctly fill in the following files: docker-compose.yml, .env.
 .env example you can find in .env.example.
 docker-compose.yml has to have several services: django, postgresql, redis, rabbitmq, prometheus, grafana.
-How you must fill .pg_service.conf and .pgpass, you can look following link [https://docs.djangoproject.com/en/5.2/ref/databases/#postgresql-notes].
 
 ```bash
 docker-compose up & docker-compose run

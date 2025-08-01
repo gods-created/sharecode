@@ -4,8 +4,6 @@ sleep 3
 
 python manage.py migrate
 
-chmod 600 /etc/.pgpass
-
 python -m gunicorn sharecode.asgi:application \
     --workers 1 \
     --worker-class uvicorn.workers.UvicornWorker \
