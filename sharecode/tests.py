@@ -7,7 +7,7 @@ class CodeShareConsumerTests(TestCase):
     def setUp(self):
         faker = Faker()
         self.room = ''.join(faker.random_letters(length=25))
-        self.data = {'message': 'hello'}
+        self.data = {'value': 'hello', 'block': 'code'}
     
     async def test_consumer(self):
         communicator = WebsocketCommunicator(
@@ -20,5 +20,5 @@ class CodeShareConsumerTests(TestCase):
         result = await communicator.receive_json_from()
         await communicator.disconnect()
 
-        self.assertIn('message', result)
-        self.assertEqual(result['message'], 'hello')
+        self.assertIn('value', result)
+        self.assertEqual(result['value'], 'hello')
