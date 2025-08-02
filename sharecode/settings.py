@@ -25,7 +25,7 @@ ALLOWED_HOSTS = [
     'localhost',
     'django',
     '0.0.0.0',
-    '13.218.198.21',
+    '44.207.175.239',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -33,7 +33,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8001',
     'http://django:8001',
     'http://0.0.0.0:8001',
-    'http://13.218.198.21',
+    'http://44.207.175.239',
 ]
 CORS_ALLOWED_CREDENTIALS = False 
 SECURE_BROWSER_XSS_FILTER = True 
