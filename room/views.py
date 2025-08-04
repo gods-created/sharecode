@@ -5,7 +5,7 @@ from asgiref.sync import sync_to_async
 from .serializers import RoomSerializer
 from content.serializers import ContentSerializer
 
-@api_view(http_method_names=['GET'])
+@api_view(http_method_names=['POST'])
 async def create_room(request) -> Response:
     data = request.data
     serializer = RoomSerializer(data=data)

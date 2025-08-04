@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="row align-items-md-stretch h-100"> 
+    <div class="col-md-6 border-end border-1"> 
+        <div class="h-100 text-bg-dark rounded-3"> 
+            <textarea id="code" class="form-control rounded-0 border-0 border-bottom"></textarea>
+
+            <div class="d-flex w-100 align-items-center justify-content-start">
+                <button id="run-code-button" class="btn btn-light rounded-0 my-3 me-3">RUN CODE</button>
+                <p class="text-secondary m-0">Room number: <span id="room-number" class="text-decoration-underline">{{ number }}</span></p> 
+            </div>
+        </div> 
+    </div>
+    <div class="col-md-6 border-top border-end border-1"> 
+        <div class="h-100 text-bg-dark rounded-3">
+            <pre id="output"></pre>
+        </div> 
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.23.3/full/pyodide.js"></script>
+<script type="module" src="{% static '/js/pages/ide.js' %}"></script>

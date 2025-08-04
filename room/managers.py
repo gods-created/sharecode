@@ -6,10 +6,10 @@ class RoomManager(Manager):
     def _number(self) -> str:
         return ''.join(choice(digits) for _ in range(9))
 
-    def create_room(self):
+    def create_room(self, language: str):
         number = int(self._number())
         room = self.filter(number=number).first()
         if room:
             self.create_room()
-        obj = self.create(number=number)
+        obj = self.create(number=number, language=language)
         return obj
