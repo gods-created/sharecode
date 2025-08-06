@@ -4,6 +4,7 @@ let socket = null;
 const runCodeButton = $('#run-code-button');
 const codeInput = $('#code');
 const output = $('#output');
+let isLocalEdit = false;
 
 async function runCode() {
     const pyodide = await loadPyodide();
@@ -49,9 +50,13 @@ function send(value, block) {
 function receive() {
     socket.addEventListener('message', (ev) => {
         const { value, block, type } = JSON.parse(ev.data);
-        if (block == 'codeInput' && value !== codeInput.val()) {
-            codeInput.val(value);
-        } else if (block == 'output' && value !== output.text()) {
+        if (block === 'codeInput') {
+            if (!isLocalEdit && value !== codeInput.val()) {
+                codeInput.val(value);
+            }
+
+            isLocalEdit = false;
+        } else if (block === 'output' && value !== output.text()) {
             output.text(value);
         }
     });
@@ -96,6 +101,7 @@ $(document).ready(async () => {
 
     codeInput.on('input', (ev) => {
         ev.preventDefault();
+        isLocalEdit = true;
         send(codeInput.val(), 'codeInput'); 
     });
 
