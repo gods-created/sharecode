@@ -49,10 +49,10 @@ function send(value, block) {
 function receive() {
     socket.addEventListener('message', (ev) => {
         const { value, block, type } = JSON.parse(ev.data);
-        if (block == 'codeInput') {
+        if (block == 'codeInput' && value !== codeInput.val()) {
             codeInput.val(value);
-        } else if (block == 'output') {
-            output.text(value)
+        } else if (block == 'output' && value !== output.text()) {
+            output.text(value);
         }
     });
 }
